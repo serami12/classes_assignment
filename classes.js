@@ -36,5 +36,9 @@ class Book {
         this.author = author;
         this.rating = rating;
     }
+    isGood() {
+        return this.rating <= 7
+    }
 }
 let bookOne = new Book("Javascript for Kids", "Nick Morgan", 10);
+console.log(bookOne.isGood())
