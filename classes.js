@@ -175,8 +175,11 @@ function Vector(x, y) {
 }
 Vector.prototype.plus = function (x, y) {
 
+
 }
-Vector.prototype.minus = {}
+Vector.prototype.minus = function (x, y) {
+
+}
 
 /* Question 7
 a.Write a class called Cylinder that has properties radius and height.Create an instance of a Cylinder.
@@ -185,21 +188,21 @@ b.Add an instance method getVolume that returns the volume
 
 c.Add an instance method getSurfaceArea that returns the surface area. */
 
-// class Cylinder {
-//     constructor(radius, height) {
-//         this.radius = radius;
-//         this.height = height;
-//     }
-//     getVolume() {
-//         return Math.PI;
-//     }
-//     getSurfaceArea() {
-
-//     }
-// }
-// let cylinder = new Cylinder(5, 30);
-// let getVolume =
-//     let getSurfaceArea =
+class Cylinder {
+    constructor(radius, height) {
+        this.radius = radius;
+        this.height = height;
+    }
+    getVolume() {
+        return Math.PI * this.radius * this.radius * this.height
+    }
+    getSurfaceArea() {
+        return 2 * (Math.PI * this.radius * this.height) + (2 * Math.PI * this.radius * this.radius)
+    }
+}
+let cylinderOne = new Cylinder(5, 30);
+console.log(cylinderOne.getVolume());
+console.log(cylinderOne.getSurfaceArea());
 
 
 /*Question 8
@@ -208,10 +211,66 @@ a.Write a class called Post that has properties datePosted, user, and text.Creat
 b.Create an instance method that returns whether or not the post was made today.
 c.Filter your array of Post objects to only include posts made today. */
 
+class Post {
+    constructor(datePosted, user, text) {
+        this.datePosted = datePosted;
+        this.user = user;
+        this.text = text;
+    }
+    getRecentPost() {
+        if (arr[i].datePosted === this.datePosted) {
+            return true
+        } else {
+            return `this post was made ${this.datePosted}`
+        }
+    }
+}
+let post = new Post(11 - 12 - 19, 1, "Hello world")
+
+let arr = [{
+    datePosted: 11 - 12 - 19,
+    user: 1,
+    text: "hello world"
+}, {
+    datePosted: 11 - 13 - 19,
+    user: 2,
+    text: "Buenas tardes"
+}, {
+    datePosted: 11 - 14 - 19,
+    user: 3,
+    text: "Feliz navidad"
+}]
+console.log(post.getRecentPost());
+
 /* Question 9
-a.Make a class called Car with properties make and model.Create an instance of a Car
+a.Make a class called Car with properties make and model. Create an instance of a Car
 b.Make a class called Bike with properties gears and hasBell.Create an instance of Bike
 c.Give each class a static method called numberOfWheels that returns the number of wheels(2 for bikes, 4 for cars).Why does it make sense for this to be a static method instead of an instance method ? */
+
+class Car {
+    constructors(make, model) {
+        this.make = make
+        this.model = model
+    }
+    static numberOfWheels() {
+        return 4 + "wheels"
+    }
+}
+class Bike {
+    constructor(make, model, gears, hasBell) {
+        this.gears = gears
+        this.hasBell = hasBell
+    }
+    static numberOfWheels() {
+        return 2 + "wheels"
+    }
+}
+let carOne = new Car("Gla SUV", "GLA 250 SUV")
+let bikeOne = new Bike("Guardian Bikes", "electrical bell")
+console.log(carOne)
+console.log(bikeOne)
+console.log(Bike.numberOfWheels())
+console.log(Car.numberOfWheels())
 
 /*Question 10
 a.Make a class called Vehicle with properties color and name.Give it a method called makeSound which logs "WHHOOSSSH" to the console
@@ -229,21 +288,23 @@ class Vehicles {
         console.log("WHHOOSSSH");
     }
 }
-
 class Bike extends Vehicles {
-    constructor(color, name, ) {
-        super(color, name);
+    constructor(color, name, gear, hasBell) {
+        super(gear, hasBell)
+        this.color = color;
+        this.name = name;
     }
 }
 class Car extends Vehicles {
-    constructor(color, name) {
-        super(color, name);
+    constructor(color, name, make, model, ) {
+        super(make, model)
+        this.color = color;
+        this.name = name;
     }
 }
-
-let bikeOne = new Bike("green", "Bikey McBikeface");
-let carOne = new Car("red", "Carry McCarface");
-console.log(bikeOne.makeSound())
-console.log(carOne.makeSound())
-console.log(bikeOne)
-console.log(carOne)
+let bikeOne2 = new Bike("green", "Bikey McBikeface");
+let carOne2 = new Car("red", "Carry McCarface");
+console.log(bikeOne2.makeSound())
+console.log(vehicleOne2.makeSound())
+console.log(bikeOne2)
+console.log(vehicleOne2)
